@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activity 1 - Rooftop Solar PV System</title>
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    color: #333;
+  }
+
+  header {
+    background: linear-gradient(to right, #ffcc00, #ff9900);
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 2.2em;
+    letter-spacing: 1px;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  }
+
+  .container {
+    width: 85%;
+    max-width: 1100px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  h2 {
+    color: #ff9900;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+    font-size: 1.7em;
+  }
+
+  p {
+    line-height: 1.7;
+    font-size: 1.05em;
+  }
+
+  /* Interactive Image */
+  .image-section {
+    position: relative;
+    overflow: hidden;
+    margin: 30px 0;
+    border-radius: 15px;
+  }
+
+  .image-section img {
+    width: 100%;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    cursor: pointer;
+    border-radius: 15px;
+  }
+
+  .image-section:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.15);
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.5s;
+    border-radius: 15px;
+  }
+
+  .image-section:hover .image-overlay {
+    opacity: 1;
+  }
+
+  /* GIF */
+  .gif-section {
+    text-align: center;
+    margin: 25px 0;
+  }
+
+  .gif-section img {
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  /* Video (YouTube Embed) */
+  .video-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .video-section iframe {
+    width: 90%;
+    max-width: 700px;
+    height: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+  }
+
+  .video-section iframe:hover {
+    transform: scale(1.03);
+  }
+
+  /* Quiz */
+  .quiz {
+    margin-top: 40px;
+  }
+
+  .quiz h3 {
+    color: #ff9900;
+  }
+
+  .question {
+    margin-bottom: 20px;
+  }
+
+  .question p {
+    font-weight: 600;
+  }
+
+  button {
+    background: #ff9900;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background: #cc7a00;
+  }
+
+  #score {
+    font-weight: bold;
+    color: green;
+    margin-top: 15px;
+  }
+</style>
+</head>
+
+<body>
+<header>☀️ Activity 1: Rooftop Solar PV System (5 kW)</header>
+
+<div class="container">
+  <section>
+    <h2>Introduction</h2>
+    <p>
+      Rooftop Solar PV Systems convert sunlight directly into electricity using photovoltaic cells.
+      This 5 kW setup is designed for residential homes, reducing grid dependency and promoting clean,
+      sustainable energy use.
+    </p>
+  </section>
+
+  <!-- Interactive Image Section -->
+  <div class="image-section">
+    <img src="images/solararcitecture.png" alt="Solar PV System Components">
+    <div class="image-overlay"></div>
+  </div>
+
+  <section>
+    <h2>Working Principle</h2>
+    <ol>
+      <li>Sunlight strikes photovoltaic (PV) cells in the rooftop panels, exciting electrons in the semiconductor material to create DC (direct current) electricity.</li>
+      <li>Multiple PV cells are wired into modules and arrays to produce the system’s required DC power output (here sized for ~5 kW peak).</li>
+      <li>The DC output flows to an inverter which converts DC into grid-compatible AC (alternating current) for household appliances.</li>
+      <li>A charge controller and battery bank (if present) manage charging: excess solar energy stores as DC for night or outages.</li>
+      <li>Smart metering monitors generation and consumption; surplus AC can be exported to the grid via a net-metering connection.</li>
+      <li>A system controller coordinates inverter, battery, and grid interaction to prioritize self-consumption, battery charging, or grid export based on demand.</li>
+      <li>Periodic monitoring and MPPT (Maximum Power Point Tracking) ensure panels operate at optimal voltage/current for maximum energy yield.</li>
+    </ol>
+  </section>
+  
+
+  <section>
+    <h2>Advantages</h2>
+    <ul>
+      <li>Reduces electricity bills and carbon footprint.</li>
+      <li>Low maintenance and long lifespan (20–25 years).</li>
+      <li>Government subsidies and incentives available.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Disadvantages</h2>
+    <ul>
+      <li>High initial setup cost.</li>
+      <li>Dependent on sunlight availability and weather conditions.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Site Selection Criteria</h2>
+    <p>
+      The rooftop should be south-facing with minimal shading and a tilt angle optimized for maximum solar
+      insolation. Adequate structural strength is necessary to support the panels and withstand wind loads.
+    </p>
+  </section>
+
+  <!-- GIF Section -->
+  <div class="gif-section">
+    <img src="images/solarrooftopworking.gif" alt="Solar Rooftop Working">
+  </div>
+
+  <section>
+    <h2>Applications</h2>
+    <p>
+      Ideal for residential, institutional, and commercial buildings where grid-connected systems can
+      significantly offset electricity consumption.
+    </p>
+  </section>
+
+  <!-- YouTube Video Section -->
+  <div class="video-section">
+    <iframe
+    width="700"
+    height="400"
+    src="https://www.youtube.com/embed/DPw2Zi50j70?si=bWMsEayyxhLM8INc&rel=0&modestbranding=1"
+    title="Rooftop Solar PV System"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Quiz Section -->
+  <section class="quiz">
+    <h3>Quiz: Test Your Knowledge 🌞</h3>
+
+    <div class="question">
+      <p>1. What is the primary function of an inverter in a solar PV system?</p>
+      <input type="radio" name="q1" value="a"> Store electricity<br>
+      <input type="radio" name="q1" value="b"> Convert DC to AC<br>
+      <input type="radio" name="q1" value="c"> Absorb sunlight<br>
+    </div>
+
+    <div class="question">
+      <p>2. What type of energy does a solar panel generate?</p>
+      <input type="radio" name="q2" value="a"> Thermal energy<br>
+      <input type="radio" name="q2" value="b"> Electrical energy<br>
+      <input type="radio" name="q2" value="c"> Mechanical energy<br>
+    </div>
+
+    <div class="question">
+      <p>3. What is the typical lifespan of solar panels?</p>
+      <input type="radio" name="q3" value="a"> 5 years<br>
+      <input type="radio" name="q3" value="b"> 10 years<br>
+      <input type="radio" name="q3" value="c"> 20–25 years<br>
+    </div>
+
+    <div class="question">
+      <p>4. Which direction should a solar panel face in India for maximum output?</p>
+      <input type="radio" name="q4" value="a"> North<br>
+      <input type="radio" name="q4" value="b"> South<br>
+      <input type="radio" name="q4" value="c"> East<br>
+    </div>
+
+    <div class="question">
+      <p>5. Which factor most affects solar power generation?</p>
+      <input type="radio" name="q5" value="a"> Weather conditions<br>
+      <input type="radio" name="q5" value="b"> Building color<br>
+      <input type="radio" name="q5" value="c"> Number of floors<br>
+    </div>
+
+    <button onclick="calculateScore()">Submit</button>
+    <p id="score"></p>
+  </section>
+</div>
+
+<script>
+  function calculateScore() {
+    const answers = { q1: "b", q2: "b", q3: "c", q4: "b", q5: "a" };
+    let score = 0;
+    for (let q in answers) {
+      const selected = document.querySelector(`input[name="${q}"]:checked`);
+      if (selected && selected.value === answers[q]) score++;
+    }
+    document.getElementById("score").innerText = `Your Score: ${score}/5`;
+  }
+</script>
+</body>
+</html>

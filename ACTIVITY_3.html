@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌊 Activity 3 - Ocean Thermal Energy Conversion (OTEC) System</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+      margin: 0;
+      padding: 0;
+      color: #1b2b34;
+      line-height: 1.6;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+  
+    header {
+      background: linear-gradient(90deg, #0288d1, #03a9f4);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+  
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+  
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #ffffffed;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+  
+    .content:hover {
+      transform: translateY(-3px);
+    }
+  
+    h2 {
+      color: #0277bd;
+      margin-bottom: 0.5rem;
+    }
+  
+    p, li {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    ul {
+      margin-left: 1.5rem;
+    }
+  
+    .section {
+      margin-top: 2.5rem;
+    }
+  
+    /* Image / video containers */
+    .image-container, .gif-container, .video-container {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      background: #e0f2f1;
+      border: 2px dashed #80deea;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #00796b;
+      font-style: italic;
+      margin-top: 1rem;
+      overflow: hidden; /* Prevents content overflow */
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+  
+    .image-container img,
+    .gif-container img,
+    .video-container iframe {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      display: block;
+    }
+  
+    .image-container:hover, .gif-container:hover, .video-container:hover {
+      background: #b2ebf2;
+      transform: scale(1.02);
+    }
+  
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+  
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #cfd8dc;
+    }
+  
+    th {
+      background-color: #b3e5fc;
+      color: #01579b;
+    }
+  
+    tr:hover {
+      background-color: #e1f5fe;
+    }
+  
+    /* Quiz styling */
+    .quiz {
+      margin-top: 2rem;
+      background: #e0f7fa;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .quiz h3 {
+      margin-bottom: 1rem;
+      color: #0277bd;
+    }
+  
+    .question {
+      margin-bottom: 1rem;
+    }
+  
+    button {
+      background: #0288d1;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+  
+    button:hover {
+      background: #0277bd;
+      transform: scale(1.05);
+    }
+  
+    .score {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #01579b;
+    }
+  
+    footer {
+      text-align: center;
+      margin: 3rem 0 1rem 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌊 Activity 3: Ocean Thermal Energy Conversion (OTEC) System</h1>
+    <p>Renewable energy from the ocean — clean power & freshwater generation</p>
+  </header>
+
+  <div class="content">
+    <section class="section">
+      <h2>🔆 Focus</h2>
+      <p>
+        Utilizing temperature differences between warm surface water and cold deep seawater to produce renewable electricity and freshwater.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>⚙️ Key Detail</h2>
+      <p>
+        This project outlines a closed-cycle OTEC system that uses low-boiling-point working fluids such as ammonia. The warm surface water evaporates the fluid, which drives a turbine to generate electricity. The vapor is then condensed by cold deep seawater, completing the cycle. The same process supports desalination for freshwater production in coastal regions.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>📍 Site Selection Criteria</h2>
+      <ul>
+        <li>Coastal regions with a temperature difference of at least 20°C between surface and deep water.</li>
+        <li>Stable ocean conditions and minimal storm activity.</li>
+        <li>Accessibility for laying underwater pipes and maintenance.</li>
+      </ul>
+      <div class="image-container"><img src="images/otecsitemap.png" alt="Otec site map"></div>
+    </section>
+
+    <section class="section">
+      <h2>🏗️ System Architecture</h2>
+      <p>
+        The OTEC system includes the following components:
+      </p>
+      <ul>
+        <li>Warm water intake pipe (surface ocean water)</li>
+        <li>Evaporator and turbine-generator unit</li>
+        <li>Condenser using cold deep seawater</li>
+        <li>Working fluid circulation loop</li>
+      </ul>
+      <div class="gif-container"><img src="images/otecworking.gif" alt="OTEC system working animation here"> </div>
+    </section>
+
+    <section class="section">
+      <h2>🌿 Advantages</h2>
+      <ul>
+        <li>Provides clean and renewable electricity.</li>
+        <li>Produces freshwater as a by-product through desalination.</li>
+        <li>Can operate 24/7 unlike solar or wind systems.</li>
+        <li>Promotes coastal economic development.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>⚠️ Disadvantages</h2>
+      <ul>
+        <li>High initial construction and maintenance costs.</li>
+        <li>Requires specific oceanic conditions (temperature gradient ≥ 20°C).</li>
+        <li>Potential environmental impact on marine ecosystems.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>⚖️ Comparison with Conventional Power Plants</h2>
+      <table>
+        <tr>
+          <th>Parameter</th>
+          <th>OTEC System</th>
+          <th>Conventional Thermal Plant</th>
+        </tr>
+        <tr>
+          <td>Energy Source</td>
+          <td>Ocean temperature difference</td>
+          <td>Coal / Natural Gas</td>
+        </tr>
+        <tr>
+          <td>Emissions</td>
+          <td>Zero CO₂ Emissions</td>
+          <td>High CO₂ and pollutants</td>
+        </tr>
+        <tr>
+          <td>Operation Cost</td>
+          <td>Low (after setup)</td>
+          <td>High (fuel cost)</td>
+        </tr>
+        <tr>
+          <td>Freshwater Production</td>
+          <td>Yes (Desalination)</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Reliability</td>
+          <td>Continuous Operation</td>
+          <td>Dependent on fuel supply</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>📹 System Demonstration</h2>
+      <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/5No5DboThQg?si=r0njN5VfR86KnG9L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    </section>
+
+    <section class="section">
+      <h2>🧠 MCQ Quiz</h2>
+      <div class="quiz">
+        <h3>Test Your Knowledge!</h3>
+
+        <form id="quizForm">
+          <div class="question">
+            <p>1. What is the minimum temperature difference required for efficient OTEC operation?</p>
+            <input type="radio" name="q1" value="a"> 5°C<br>
+            <input type="radio" name="q1" value="b"> 10°C<br>
+            <input type="radio" name="q1" value="c"> 20°C<br>
+          </div>
+
+          <div class="question">
+            <p>2. Which fluid is commonly used in a closed-cycle OTEC system?</p>
+            <input type="radio" name="q2" value="a"> Water<br>
+            <input type="radio" name="q2" value="b"> Ammonia<br>
+            <input type="radio" name="q2" value="c"> Hydrogen<br>
+          </div>
+
+          <div class="question">
+            <p>3. What type of energy conversion takes place in OTEC?</p>
+            <input type="radio" name="q3" value="a"> Thermal to Electrical<br>
+            <input type="radio" name="q3" value="b"> Solar to Mechanical<br>
+            <input type="radio" name="q3" value="c"> Chemical to Electrical<br>
+          </div>
+
+          <div class="question">
+            <p>4. What is a by-product of OTEC systems?</p>
+            <input type="radio" name="q4" value="a"> Freshwater<br>
+            <input type="radio" name="q4" value="b"> Fossil fuel<br>
+            <input type="radio" name="q4" value="c"> Plastic<br>
+          </div>
+
+          <div class="question">
+            <p>5. Which of the following is a disadvantage of OTEC?</p>
+            <input type="radio" name="q5" value="a"> Produces air pollution<br>
+            <input type="radio" name="q5" value="b"> High initial cost<br>
+            <input type="radio" name="q5" value="c"> Runs only during daytime<br>
+          </div>
+
+          <button type="button" onclick="calculateScore()">Submit</button>
+          <div id="score" class="score"></div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2025 SRM Sustainable Energy Project CGE Portfolio</footer>
+
+  <script>
+    function calculateScore() {
+      let score = 0;
+      const answers = ['c', 'b', 'a', 'a', 'b'];
+      for (let i = 1; i <= 5; i++) {
+        const q = document.querySelector(`input[name=q${i}]:checked`);
+        if (q && q.value === answers[i - 1]) score++;
+      }
+      document.getElementById('score').innerText = `Your Score: ${score}/5`;
+    }
+  </script>
+
+</body>
+</html>

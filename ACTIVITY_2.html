@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌤️ Activity 2 - Solar Water Heating System (2000 L/day)</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #fff8e1, #fff);
+      margin: 0;
+      padding: 0;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ffb74d, #ffa726);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #ffffffea;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .content:hover {
+      transform: translateY(-3px);
+    }
+
+    h2 {
+      color: #ef6c00;
+      margin-bottom: 0.5rem;
+    }
+
+    p, li {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+    }
+
+    .section {
+      margin-top: 2.5rem;
+    }
+
+    /* Image placeholders */
+    .image-container, .gif-container, .video-container {
+      width: 100%;
+      height: 300px;
+      background: #f5f5f5;
+      border: 2px dashed #ccc;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #777;
+      font-style: italic;
+      margin-top: 1rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+      overflow: hidden; /* prevents images from overflowing */
+    }
+
+    .image-container img, .gif-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 15px;
+      display: block;
+    }
+
+    .image-container:hover, .gif-container:hover, .video-container:hover {
+      background: #e0e0e0;
+      transform: scale(1.02);
+    }
+
+    /* Quiz styling */
+    .quiz {
+      margin-top: 2rem;
+      background: #fff3e0;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .quiz h3 {
+      margin-bottom: 1rem;
+      color: #ef6c00;
+    }
+
+    .question {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    button:hover {
+      background: #fb8c00;
+      transform: scale(1.05);
+    }
+
+    .score {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #d84315;
+    }
+
+    footer {
+      text-align: center;
+      margin: 3rem 0 1rem 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌤️ Activity 2: Solar Water Heating System (2000 L/day)</h1>
+    <p>Harnessing solar thermal energy for sustainable hot water supply</p>
+  </header>
+
+  <div class="content">
+    <section class="section">
+      <h2>🔆 Focus</h2>
+      <p>
+        Sustainable utilization of solar thermal energy for daily hot water needs in institutional settings.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>🔧 System Overview</h2>
+      <p>
+        Designed a solar water heating system suitable for a university hostel. The setup uses flat-plate collectors, 
+        insulated storage tanks, and a circulation system to efficiently deliver 2000 liters of hot water per day, 
+        significantly reducing dependency on electric or gas-based heating.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>📍 Site Selection</h2>
+      <p>
+        The installation site was chosen based on maximum sun exposure, minimal shading, and accessibility for maintenance.
+      </p>
+      <ul>
+        <li>South-facing terrace with 30° tilt for optimal solar incidence.</li>
+        <li>Located near water storage tanks for easy plumbing integration.</li>
+        <li>Free from obstruction by trees or nearby buildings.</li>
+      </ul>
+    </section>
+
+    <section>
+        <h2>Working Principle</h2>
+        <div class="gif-container">
+            <img src="images/solarheaterworking.gif" alt="Solar Heater Working Animation">
+          </div>
+        <ol>
+          <li>Cold water from the main storage tank flows into the solar flat-plate collectors through insulated pipes.</li>
+          <li>These collectors contain a dark-colored absorber plate that captures solar radiation and converts it into heat energy.</li>
+          <li>The absorbed heat is transferred to the water flowing through copper tubes attached to the absorber plate.</li>
+          <li>As the water heats up, it becomes less dense and naturally rises to the top of the insulated storage tank through the thermosyphon effect.</li>
+          <li>Colder water from the tank simultaneously flows down to the collectors, maintaining continuous circulation without any pump.</li>
+          <li>The insulated storage tank retains the heated water for later use, minimizing heat loss to the environment.</li>
+          <li>Hot water is then distributed through the plumbing system for daily use, providing an energy-efficient and sustainable heating solution.</li>
+        </ol>
+      </section>
+      
+
+    <section class="section">
+      <h2>🏗️ System Architecture</h2>
+      <p>
+        The system includes collectors that absorb solar radiation, transferring the heat to water through insulated pipes.
+      </p>
+      <div class="image-container">
+        <img src="images/solarheaterarchitecture.gif" alt="Solar Heater Architecture Diagram">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🌿 Advantages</h2>
+      <ul>
+        <li>Reduces electricity and fuel bills substantially.</li>
+        <li>Low maintenance with long lifespan (15–20 years).</li>
+        <li>Environment-friendly — zero greenhouse gas emissions.</li>
+        <li>Ideal for large-scale institutional and residential applications.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>⚠️ Disadvantages</h2>
+      <ul>
+        <li>Dependent on sunlight availability; performance drops on cloudy days.</li>
+        <li>Higher initial installation cost.</li>
+        <li>Requires adequate roof space for collector panels.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>⚖️ Comparison with Regular Water Heater</h2>
+      <table border="1" cellspacing="0" cellpadding="10" style="width:100%; border-radius:10px; border-collapse:collapse;">
+        <tr style="background:#ffe0b2;">
+          <th>Parameter</th>
+          <th>Solar Water Heater</th>
+          <th>Electric/Gas Water Heater</th>
+        </tr>
+        <tr>
+          <td>Energy Source</td>
+          <td>Solar Radiation</td>
+          <td>Electricity / LPG / Natural Gas</td>
+        </tr>
+        <tr>
+          <td>Operational Cost</td>
+          <td>Very Low</td>
+          <td>High (Monthly Bills)</td>
+        </tr>
+        <tr>
+          <td>Environmental Impact</td>
+          <td>Eco-friendly, No Emissions</td>
+          <td>CO₂ Emissions</td>
+        </tr>
+        <tr>
+          <td>Initial Cost</td>
+          <td>Higher</td>
+          <td>Lower</td>
+        </tr>
+        <tr>
+          <td>Lifespan</td>
+          <td>15–20 years</td>
+          <td>8–10 years</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>📹 System Demonstration</h2>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/8wnksG2Xe9Y?si=D4Bwp3lBl6RFpa5n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🧠 MCQ Quiz</h2>
+      <div class="quiz">
+        <h3>Test Your Knowledge!</h3>
+
+        <form id="quizForm">
+          <div class="question">
+            <p>1. What is the main component used to absorb solar energy?</p>
+            <input type="radio" name="q1" value="a"> Flat plate collector<br>
+            <input type="radio" name="q1" value="b"> Storage tank<br>
+            <input type="radio" name="q1" value="c"> Circulation pump<br>
+          </div>
+
+          <div class="question">
+            <p>2. What type of energy conversion takes place in solar water heaters?</p>
+            <input type="radio" name="q2" value="a"> Thermal to Electrical<br>
+            <input type="radio" name="q2" value="b"> Solar to Thermal<br>
+            <input type="radio" name="q2" value="c"> Electrical to Thermal<br>
+          </div>
+
+          <div class="question">
+            <p>3. The efficiency of solar water heaters primarily depends on?</p>
+            <input type="radio" name="q3" value="a"> Tank size<br>
+            <input type="radio" name="q3" value="b"> Sunlight intensity<br>
+            <input type="radio" name="q3" value="c"> Pipe color<br>
+          </div>
+
+          <div class="question">
+            <p>4. What reduces heat loss in the storage tank?</p>
+            <input type="radio" name="q4" value="a"> Polishing<br>
+            <input type="radio" name="q4" value="b"> Insulation<br>
+            <input type="radio" name="q4" value="c"> Ventilation<br>
+          </div>
+
+          <div class="question">
+            <p>5. The typical temperature achieved by solar water heaters is?</p>
+            <input type="radio" name="q5" value="a"> 10–20°C<br>
+            <input type="radio" name="q5" value="b"> 30–50°C<br>
+            <input type="radio" name="q5" value="c"> 60–80°C<br>
+          </div>
+
+          <button type="button" onclick="calculateScore()">Submit</button>
+          <div id="score" class="score"></div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2025 SRM Sustainable Energy Project CGE Portfolio</footer>
+
+  <script>
+    function calculateScore() {
+      let score = 0;
+      const answers = ['a', 'b', 'b', 'b', 'c'];
+      for (let i = 1; i <= 5; i++) {
+        const q = document.querySelector(`input[name=q${i}]:checked`);
+        if (q && q.value === answers[i - 1]) score++;
+      }
+      document.getElementById('score').innerText = `Your Score: ${score}/5`;
+    }
+  </script>
+
+</body>
+</html>
