@@ -239,123 +239,203 @@
             loop: true
         });
     </script>
-    <!-- ChatGPT-Style Chatbot -->
-<div id="chatbot-widget" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999;">
-    <button id="chatbot-toggle" style="
-      background-color: #222;
-      border: none;
+    <!-- 🟣 Smart Clean & Green Chatbot -->
+<style>
+    /* Chatbot Icon */
+    #chatbot-icon {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #7b2cbf;
+      color: white;
       border-radius: 50%;
       width: 60px;
       height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      display: flex; align-items: center; justify-content: center;
-    ">
-      💬
-    </button>
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 9999;
+      animation: bounce 2s infinite;
+      transition: transform 0.3s ease;
+    }
   
-    <div id="chatbot-container" style="
+    #chatbot-icon:hover {
+      transform: scale(1.1);
+    }
+  
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+  
+    /* Chat Window */
+    #chatbot-box {
       display: none;
-      position: absolute;
-      bottom: 80px;
-      right: 0;
-      width: 360px;
-      height: 500px;
-      background: #121212;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      position: fixed;
+      bottom: 95px;
+      right: 25px;
+      width: 350px;
+      height: 420px;
+      background: white;
+      border: 2px solid #7b2cbf;
+      border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.25);
       overflow: hidden;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-    ">
-      <div style="background: #0078ff; padding: 10px; text-align: center; font-weight: bold;">AI Assistant 🤖</div>
+      z-index: 9998;
+      flex-direction: column;
+    }
   
-      <div id="chat-messages" style="
-        height: 400px;
-        padding: 10px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      "></div>
+    #chatbot-header {
+      background: #7b2cbf;
+      color: white;
+      padding: 12px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   
-      <div style="display: flex; border-top: 1px solid #333;">
-        <input id="chat-input" type="text" placeholder="Ask something..." style="
-          flex: 1;
-          padding: 10px;
-          border: none;
-          background: #1e1e1e;
-          color: #fff;
-          outline: none;
-        ">
-        <button id="send-btn" style="
-          background: #0078ff;
-          border: none;
-          color: white;
-          padding: 0 15px;
-          cursor: pointer;
-        ">➤</button>
-      </div>
+    #chatbot-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-family: "Patrick Hand", cursive;
+    }
+  
+    .bot-msg, .user-msg {
+      margin: 8px 0;
+      padding: 8px 12px;
+      border-radius: 10px;
+      max-width: 80%;
+    }
+  
+    .bot-msg {
+      background: #f3e9ff;
+      color: #3c096c;
+      align-self: flex-start;
+    }
+  
+    .user-msg {
+      background: #7b2cbf;
+      color: white;
+      align-self: flex-end;
+    }
+  
+    #chatbot-input-area {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+  
+    #chatbot-input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      font-family: "Patrick Hand", cursive;
+    }
+  
+    #send-btn {
+      background: #7b2cbf;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+  
+  <div id="chatbot-icon">💬</div>
+  
+  <div id="chatbot-box">
+    <div id="chatbot-header">
+      Ask Me About Clean & Green Energies 🌱
+      <span style="cursor:pointer;" onclick="toggleChatbot()">✖</span>
+    </div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input-area">
+      <input id="chatbot-input" type="text" placeholder="Ask about solar, water heater, or OTEC...">
+      <button id="send-btn">➤</button>
     </div>
   </div>
   
   <script>
-    const toggleButton = document.getElementById('chatbot-toggle');
-    const chatbotContainer = document.getElementById('chatbot-container');
-    const chatMessages = document.getElementById('chat-messages');
-    const chatInput = document.getElementById('chat-input');
-    const sendBtn = document.getElementById('send-btn');
+    const chatbotIcon = document.getElementById("chatbot-icon");
+    const chatbotBox = document.getElementById("chatbot-box");
+    const chatbotMessages = document.getElementById("chatbot-messages");
+    const chatbotInput = document.getElementById("chatbot-input");
+    const sendBtn = document.getElementById("send-btn");
   
-    let isOpen = false;
-  
-    toggleButton.addEventListener('click', () => {
-      isOpen = !isOpen;
-      chatbotContainer.style.display = isOpen ? 'block' : 'none';
+    chatbotIcon.addEventListener("click", () => {
+      chatbotBox.style.display = "flex";
+      chatbotIcon.style.display = "none";
     });
   
-    async function sendMessage() {
-      const userMessage = chatInput.value.trim();
-      if (!userMessage) return;
-  
-      const userBubble = document.createElement('div');
-      userBubble.style.background = '#0078ff';
-      userBubble.style.padding = '8px 10px';
-      userBubble.style.borderRadius = '8px';
-      userBubble.style.alignSelf = 'flex-end';
-      userBubble.textContent = userMessage;
-      chatMessages.appendChild(userBubble);
-      chatInput.value = '';
-  
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-  
-      const botBubble = document.createElement('div');
-      botBubble.style.background = '#2a2a2a';
-      botBubble.style.padding = '8px 10px';
-      botBubble.style.borderRadius = '8px';
-      botBubble.style.alignSelf = 'flex-start';
-      botBubble.textContent = 'Thinking...';
-      chatMessages.appendChild(botBubble);
-  
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-  
-      try {
-        const response = await fetch('http://localhost:5000/chat', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ message: userMessage })
-        });
-        const data = await response.json();
-        botBubble.textContent = data.reply || "Error: No response";
-      } catch (error) {
-        botBubble.textContent = "⚠️ Server not running or network error.";
-      }
-  
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+    function toggleChatbot() {
+      chatbotBox.style.display = "none";
+      chatbotIcon.style.display = "flex";
     }
   
-    sendBtn.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', e => {
-      if (e.key === 'Enter') sendMessage();
+    function addMessage(msg, sender) {
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add(sender === "bot" ? "bot-msg" : "user-msg");
+      msgDiv.textContent = msg;
+      chatbotMessages.appendChild(msgDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+  
+    function botReply(userInput) {
+      const text = userInput.toLowerCase();
+      let reply = "I'm not sure I understood that. Can you rephrase your question? 🌱";
+  
+      // Greetings
+      if (text.includes("hello") || text.includes("hi") || text.includes("hey")) {
+        reply = "Hello there! 👋 Ask me about Solar Panels, Solar Water Heaters, or OTEC systems!";
+      }
+  
+      // 🌞 Activity 1: Solar Panel
+      else if (text.includes("solar") && text.includes("panel")) {
+        if (text.includes("what")) reply = "A rooftop solar PV system converts sunlight into electricity using photovoltaic cells, providing a 5 kW clean energy source for homes. ☀️";
+        else if (text.includes("work")) reply = "Solar panels absorb sunlight; the PV cells generate DC power, which is converted to AC through an inverter, powering your home or feeding the grid.";
+        else if (text.includes("advantage") || text.includes("pro")) reply = "✅ Renewable energy, ✅ Low maintenance, ✅ Reduces electricity bills, ✅ Environmentally friendly.";
+        else if (text.includes("disadvantage") || text.includes("con")) reply = "⚠️ High upfront cost, ⚠️ Weather dependent, ⚠️ Needs large roof space.";
+        else reply = "The 5 kW rooftop solar PV system generates green electricity for sustainable residential use!";
+      }
+  
+      // 🌤️ Activity 2: Solar Water Heater
+      else if (text.includes("water") && text.includes("heat")) {
+        if (text.includes("what")) reply = "A solar water heating system uses solar thermal energy to heat water for domestic or institutional use. 🌤️";
+        else if (text.includes("work")) reply = "Cold water flows through flat-plate collectors, gets heated by the sun, and is stored in insulated tanks for use throughout the day.";
+        else if (text.includes("advantage") || text.includes("pro")) reply = "✅ Saves electricity or gas, ✅ Low running cost, ✅ Eco-friendly, ✅ Long lifespan.";
+        else if (text.includes("disadvantage") || text.includes("con")) reply = "⚠️ Works only during sunny days, ⚠️ Needs maintenance for scaling, ⚠️ Initial installation cost.";
+        else reply = "This system efficiently heats 2000 L/day of water using solar energy for sustainable living!";
+      }
+  
+      // 🌊 Activity 3: OTEC
+      else if (text.includes("otec") || text.includes("ocean") || text.includes("thermal")) {
+        if (text.includes("what")) reply = "OTEC (Ocean Thermal Energy Conversion) uses the temperature difference between warm surface water and cold deep seawater to generate electricity. 🌊";
+        else if (text.includes("work")) reply = "In a closed-cycle OTEC, warm surface water evaporates a working fluid; vapor drives a turbine; cold deep water condenses it back to liquid — completing the cycle.";
+        else if (text.includes("advantage") || text.includes("pro")) reply = "✅ Continuous renewable source, ✅ Produces both power and freshwater, ✅ Ideal for tropical regions.";
+        else if (text.includes("disadvantage") || text.includes("con")) reply = "⚠️ High setup cost, ⚠️ Location specific, ⚠️ Complex maintenance.";
+        else reply = "OTEC offers clean power and desalinated water using the ocean’s natural temperature difference!";
+      }
+  
+      addMessage(reply, "bot");
+    }
+  
+    sendBtn.addEventListener("click", () => {
+      const userInput = chatbotInput.value.trim();
+      if (userInput === "") return;
+      addMessage(userInput, "user");
+      chatbotInput.value = "";
+      setTimeout(() => botReply(userInput), 600);
+    });
+  
+    chatbotInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendBtn.click();
     });
   </script>
   
